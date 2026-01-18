@@ -41840,7 +41840,8 @@
 
       if (samples > MAX_SAMPLES) {
         console.warn(
-          `sigmaRadians, ${sigmaRadians}, is too large and will clip, as it requested ${samples
+          `sigmaRadians, ${sigmaRadians}, is too large and will clip, as it requested ${
+            samples
           } samples when the maximum is set to ${MAX_SAMPLES}`,
         );
       }
