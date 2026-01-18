@@ -104,9 +104,9 @@
       }
     }
 
-    onclick(event) {}
+    onclick(event) { }
 
-    pairWith(object) {}
+    pairWith(object) { }
 
     setIcon(newIcon) {
       let oldIcon = this.icon;
@@ -374,7 +374,7 @@
    * https://github.com/mrdoob/eventdispatcher.js/
    */
 
-  function EventDispatcher$1() {}
+  function EventDispatcher$1() { }
 
   Object.assign(EventDispatcher$1.prototype, {
     addEventListener: function (type, listener) {
@@ -2859,7 +2859,7 @@
       return this;
     }
 
-    _onChangeCallback() {}
+    _onChangeCallback() { }
   }
 
   class Vector3 {
@@ -5717,7 +5717,7 @@
       return this;
     }
 
-    _onChangeCallback() {}
+    _onChangeCallback() { }
   }
 
   Euler.DefaultOrder = 'XYZ';
@@ -5864,8 +5864,8 @@
 
     isObject3D: true,
 
-    onBeforeRender: function () {},
-    onAfterRender: function () {},
+    onBeforeRender: function () { },
+    onAfterRender: function () { },
 
     applyMatrix4: function (matrix) {
       if (this.matrixAutoUpdate) this.updateMatrix();
@@ -6159,7 +6159,7 @@
       return target.set(e[8], e[9], e[10]).normalize();
     },
 
-    raycast: function () {},
+    raycast: function () { },
 
     traverse: function (callback) {
       callback(this);
@@ -7620,7 +7620,7 @@
 
     isMaterial: true,
 
-    onBeforeCompile: function (/* shaderobject, renderer */) {},
+    onBeforeCompile: function (/* shaderobject, renderer */) { },
 
     customProgramCacheKey: function () {
       return this.onBeforeCompile.toString();
@@ -8073,7 +8073,7 @@
   Object.assign(BufferAttribute.prototype, {
     isBufferAttribute: true,
 
-    onUploadCallback: function () {},
+    onUploadCallback: function () { },
 
     setUsage: function (value) {
       this.usage = value;
@@ -20021,7 +20021,7 @@
       onAnimationFrameCallback = callback;
     };
 
-    this.dispose = function () {};
+    this.dispose = function () { };
   }
 
   Object.assign(WebXRManager.prototype, EventDispatcher$1.prototype);
@@ -22294,7 +22294,7 @@
   Object.assign(InterleavedBuffer.prototype, {
     isInterleavedBuffer: true,
 
-    onUploadCallback: function () {},
+    onUploadCallback: function () { },
 
     setUsage: function (value) {
       this.usage = value;
@@ -23348,7 +23348,7 @@
       matrix.toArray(this.instanceMatrix.array, index * 16);
     },
 
-    updateMorphTargets: function () {},
+    updateMorphTargets: function () { },
 
     dispose: function () {
       this.dispatchEvent({ type: 'dispose' });
@@ -30418,7 +30418,7 @@
             //-
             //- 				if ( t >= t1 || t1 === undefined ) {
             forward_scan: if (!(t < t1)) {
-              for (let giveUpAt = i1 + 2; ; ) {
+              for (let giveUpAt = i1 + 2; ;) {
                 if (t1 === undefined) {
                   if (t < t0) break forward_scan;
 
@@ -30459,7 +30459,7 @@
 
               // linear reverse scan
 
-              for (let giveUpAt = i1 - 2; ; ) {
+              for (let giveUpAt = i1 - 2; ;) {
                 if (t0 === undefined) {
                   // before start
 
@@ -31751,7 +31751,7 @@
   }
 
   Object.assign(Loader.prototype, {
-    load: function (/* url, onLoad, onProgress, onError */) {},
+    load: function (/* url, onLoad, onProgress, onError */) { },
 
     loadAsync: function (url, onProgress) {
       const scope = this;
@@ -31761,7 +31761,7 @@
       });
     },
 
-    parse: function (/* data */) {},
+    parse: function (/* data */) { },
 
     setCrossOrigin: function (crossOrigin) {
       this.crossOrigin = crossOrigin;
@@ -36728,7 +36728,7 @@
     if (glyph.o) {
       const outline = glyph._cachedOutline || (glyph._cachedOutline = glyph.o.split(' '));
 
-      for (let i = 0, l = outline.length; i < l; ) {
+      for (let i = 0, l = outline.length; i < l;) {
         const action = outline[i++];
 
         switch (action) {
@@ -38055,8 +38055,8 @@
     // prototype, continued
 
     // these are used to "bind" a nonexistent property
-    _getValue_unavailable: function () {},
-    _setValue_unavailable: function () {},
+    _getValue_unavailable: function () { },
+    _setValue_unavailable: function () { },
 
     BindingType: {
       Direct: 0,
@@ -40467,7 +40467,7 @@
     Object3D.call(this);
 
     this.material = material;
-    this.render = function (/* renderCallback */) {};
+    this.render = function (/* renderCallback */) { };
 
     this.hasPositions = false;
     this.hasNormals = false;
@@ -41840,8 +41840,7 @@
 
       if (samples > MAX_SAMPLES) {
         console.warn(
-          `sigmaRadians, ${sigmaRadians}, is too large and will clip, as it requested ${
-            samples
+          `sigmaRadians, ${sigmaRadians}, is too large and will clip, as it requested ${samples
           } samples when the maximum is set to ${MAX_SAMPLES}`,
         );
       }
@@ -44457,8 +44456,8 @@
 
       {
         // event listeners
-        this.addEventListener('select', (e) => {});
-        this.addEventListener('deselect', (e) => {});
+        this.addEventListener('select', (e) => { });
+        this.addEventListener('deselect', (e) => { });
       }
     }
 
@@ -44478,9 +44477,9 @@
       console.warn('override this in subclass');
     }
 
-    update() {}
+    update() { }
 
-    raycast(raycaster, intersects) {}
+    raycast(raycaster, intersects) { }
 
     get clip() {
       return this._clip;
@@ -49144,7 +49143,7 @@
       try {
         proj4(srs);
         return srs;
-      } catch (e) {}
+      } catch (e) { }
     }
   }
 
@@ -54354,7 +54353,7 @@ void main() {
       material.bbSize = [bbSize.x, bbSize.y, bbSize.z];
     }
 
-    updateVisibleBounds() {}
+    updateVisibleBounds() { }
 
     hideDescendants(object) {
       let stack = [];
@@ -57962,7 +57961,7 @@ void main() {
       this.extension = extension;
     }
 
-    static progressCB() {}
+    static progressCB() { }
 
     load(node) {
       if (node.loaded) {
@@ -58053,7 +58052,7 @@ void main() {
       }
     }
 
-    handle(node, url) {}
+    handle(node, url) { }
   }
 
   class LasLazBatcher {
@@ -59542,7 +59541,7 @@ void main() {
   }
 
   class GeoPackageLoader {
-    constructor() {}
+    constructor() { }
 
     static async loadUrl(url, params) {
       await Promise.all([
@@ -60174,7 +60173,7 @@ void main() {
       return polyClipVol;
     }
 
-    update() {}
+    update() { }
   }
 
   var GeoTIFF = (function (exports) {
@@ -60260,7 +60259,7 @@ void main() {
     }
 
     class Reader {
-      constructor() {}
+      constructor() { }
 
       static read(data) {
         let endiannessTag = String.fromCharCode(...Array.from(data.slice(0, 2)));
@@ -60416,7 +60415,7 @@ void main() {
     }
 
     class Exporter {
-      constructor() {}
+      constructor() { }
 
       static toTiffBuffer(image, params = {}) {
         let offsetToFirstIFD = 8;
@@ -61769,7 +61768,7 @@ void main() {
           t.start();
         };
 
-        pickSphere.addEventListener('drag', (e) => {});
+        pickSphere.addEventListener('drag', (e) => { });
 
         pickSphere.addEventListener('mouseup', (e) => {
           e.consume();
@@ -62627,7 +62626,7 @@ void main() {
       }
     }
 
-    clearTargets() {}
+    clearTargets() { }
 
     clear() {
       let { viewer, renderer } = this;
@@ -64748,7 +64747,7 @@ void main() {
             this.sourcesLabelLayer.getSource().addFeature(feature);
           }
         })
-        .catch(() => {});
+        .catch(() => { });
     }
 
     toggle() {
@@ -66691,7 +66690,7 @@ ENDSEC
       return elTable;
     }
 
-    update() {}
+    update() { }
   }
 
   class DistancePanel extends MeasurePanel {
@@ -67516,7 +67515,7 @@ ENDSEC
           max: 10 * 1000 * 1000,
           step: 0.01,
           numberFormat: 'n',
-          start: () => {},
+          start: () => { },
           spin: (event, ui) => {
             let value = elWidthSlider.spinner('value');
             measurement.setWidth(value);
@@ -67979,7 +67978,7 @@ ENDSEC
         max: 300,
         step: 0.01,
         numberFormat: 'n',
-        start: () => {},
+        start: () => { },
         spin: (event, ui) => {
           let value = elDuration.spinner('value');
           animation.setDuration(value);
@@ -68098,7 +68097,7 @@ ENDSEC
       // this.update();
     }
 
-    update() {}
+    update() { }
   }
 
   class PropertiesPanel {
@@ -69251,9 +69250,9 @@ ENDSEC
       this.updateLabels();
     }
 
-    removeLevel() {}
+    removeLevel() { }
 
-    updateSliders() {}
+    updateSliders() { }
 
     updateLabels() {
       let levels = this.sliders.length;
@@ -70364,7 +70363,7 @@ ENDSEC
     doubleQuote = false;
     sign$1 = 1;
 
-    for (;;) {
+    for (; ;) {
       c = peek();
 
       // This code is unreachable.
@@ -74168,7 +74167,7 @@ ENDSEC
       this.scene = scene;
     }
 
-    update(delta) {}
+    update(delta) { }
 
     getNormalizedDrag() {
       if (!this.drag) {
@@ -79272,7 +79271,7 @@ ENDSEC
       }
     }
 
-    end() {}
+    end() { }
 
     update(vrControls, delta) {
       let primary = vrControls.cPrimary;
@@ -79330,7 +79329,7 @@ ENDSEC
       this.startPos = vrControls.node.position.clone();
     }
 
-    end(vrControls) {}
+    end(vrControls) { }
 
     update(vrControls, delta) {
       let start = this.controller.start.position;
@@ -79765,7 +79764,7 @@ ENDSEC
       this.node.updateMatrixWorld();
     }
 
-    onEnd() {}
+    onEnd() { }
 
     setScene(scene) {
       this.scene = scene;
@@ -80046,7 +80045,7 @@ ENDSEC
           }
         }
 
-        this.pointCloudLoadedCallback = args.onPointCloudLoaded || function () {};
+        this.pointCloudLoadedCallback = args.onPointCloudLoaded || function () { };
 
         // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         //	defaultSettings.navigation = "Orbit";
