@@ -621,7 +621,7 @@
         default:
           console.warn(
             'THREE.MathUtils: .setQuaternionFromProperEuler() encountered an unknown order: ' +
-              order,
+            order,
           );
       }
     },
@@ -2206,10 +2206,10 @@
   }
 
   /*
-	 In options, we can specify:
-	 * Texture parameters for an auto-generated target texture
-	 * depthBuffer/stencilBuffer: Booleans to indicate if we should generate these buffers
-	*/
+   In options, we can specify:
+   * Texture parameters for an auto-generated target texture
+   * depthBuffer/stencilBuffer: Booleans to indicate if we should generate these buffers
+  */
   function WebGLRenderTarget(width, height, options) {
     this.width = width;
     this.height = height;
@@ -4919,33 +4919,33 @@
 
       return (
         n41 *
-          (+n14 * n23 * n32 -
-            n13 * n24 * n32 -
-            n14 * n22 * n33 +
-            n12 * n24 * n33 +
-            n13 * n22 * n34 -
-            n12 * n23 * n34) +
+        (+n14 * n23 * n32 -
+          n13 * n24 * n32 -
+          n14 * n22 * n33 +
+          n12 * n24 * n33 +
+          n13 * n22 * n34 -
+          n12 * n23 * n34) +
         n42 *
-          (+n11 * n23 * n34 -
-            n11 * n24 * n33 +
-            n14 * n21 * n33 -
-            n13 * n21 * n34 +
-            n13 * n24 * n31 -
-            n14 * n23 * n31) +
+        (+n11 * n23 * n34 -
+          n11 * n24 * n33 +
+          n14 * n21 * n33 -
+          n13 * n21 * n34 +
+          n13 * n24 * n31 -
+          n14 * n23 * n31) +
         n43 *
-          (+n11 * n24 * n32 -
-            n11 * n22 * n34 -
-            n14 * n21 * n32 +
-            n12 * n21 * n34 +
-            n14 * n22 * n31 -
-            n12 * n24 * n31) +
+        (+n11 * n24 * n32 -
+          n11 * n22 * n34 -
+          n14 * n21 * n32 +
+          n12 * n21 * n34 +
+          n14 * n22 * n31 -
+          n12 * n24 * n31) +
         n44 *
-          (-n13 * n22 * n31 -
-            n11 * n23 * n32 +
-            n11 * n22 * n33 +
-            n13 * n21 * n32 -
-            n12 * n21 * n33 +
-            n12 * n23 * n31)
+        (-n13 * n22 * n31 -
+          n11 * n23 * n32 +
+          n11 * n22 * n33 +
+          n13 * n21 * n32 -
+          n12 * n21 * n33 +
+          n12 * n23 * n31)
       );
     }
 
@@ -7641,8 +7641,8 @@
         if (key === 'shading') {
           console.warn(
             'THREE.' +
-              this.type +
-              ': .shading has been removed. Use the boolean .flatShading instead.',
+            this.type +
+            ': .shading has been removed. Use the boolean .flatShading instead.',
           );
           this.flatShading = newValue === FlatShading ? true : false;
           continue;
@@ -9345,7 +9345,7 @@
 
         console.warn(
           'THREE.BufferGeometry.merge(): Overwriting original geometry, starting at offset=0. ' +
-            'Use BufferGeometryUtils.mergeBufferGeometries() for lossless merge.',
+          'Use BufferGeometryUtils.mergeBufferGeometries() for lossless merge.',
         );
       }
 
@@ -9559,28 +9559,28 @@
 
     clone: function () {
       /*
-			 // Handle primitives
+       // Handle primitives
 
-			 const parameters = this.parameters;
+       const parameters = this.parameters;
 
-			 if ( parameters !== undefined ) {
+       if ( parameters !== undefined ) {
 
-			 const values = [];
+       const values = [];
 
-			 for ( const key in parameters ) {
+       for ( const key in parameters ) {
 
-			 values.push( parameters[ key ] );
+       values.push( parameters[ key ] );
 
-			 }
+       }
 
-			 const geometry = Object.create( this.constructor.prototype );
-			 this.constructor.apply( geometry, values );
-			 return geometry;
+       const geometry = Object.create( this.constructor.prototype );
+       this.constructor.apply( geometry, values );
+       return geometry;
 
-			 }
+       }
 
-			 return new this.constructor().copy( this );
-			 */
+       return new this.constructor().copy( this );
+       */
 
       return new BufferGeometry().copy(this);
     },
@@ -12388,8 +12388,8 @@
       fragmentShader: ShaderChunk.background_frag,
     },
     /* -------------------------------------------------------------------------
-		//	Cube map shader
-		 ------------------------------------------------------------------------- */
+    //	Cube map shader
+     ------------------------------------------------------------------------- */
 
     cube: {
       uniforms: mergeUniforms([
@@ -14884,23 +14884,23 @@
   function generateExtensions(parameters) {
     const chunks = [
       parameters.extensionDerivatives ||
-      parameters.envMapCubeUV ||
-      parameters.bumpMap ||
-      parameters.tangentSpaceNormalMap ||
-      parameters.clearcoatNormalMap ||
-      parameters.flatShading ||
-      parameters.shaderID === 'physical'
+        parameters.envMapCubeUV ||
+        parameters.bumpMap ||
+        parameters.tangentSpaceNormalMap ||
+        parameters.clearcoatNormalMap ||
+        parameters.flatShading ||
+        parameters.shaderID === 'physical'
         ? '#extension GL_OES_standard_derivatives : enable'
         : '',
       (parameters.extensionFragDepth || parameters.logarithmicDepthBuffer) &&
-      parameters.rendererExtensionFragDepth
+        parameters.rendererExtensionFragDepth
         ? '#extension GL_EXT_frag_depth : enable'
         : '',
       parameters.extensionDrawBuffers && parameters.rendererExtensionDrawBuffers
         ? '#extension GL_EXT_draw_buffers : require'
         : '',
       (parameters.extensionShaderTextureLOD || parameters.envMap) &&
-      parameters.rendererExtensionShaderTextureLod
+        parameters.rendererExtensionShaderTextureLod
         ? '#extension GL_EXT_shader_texture_lod : enable'
         : '',
     ];
@@ -15353,7 +15353,7 @@
           : '',
 
         (parameters.extensionShaderTextureLOD || parameters.envMap) &&
-        parameters.rendererExtensionShaderTextureLod
+          parameters.rendererExtensionShaderTextureLod
           ? '#define TEXTURE_LOD_EXT'
           : '',
 
@@ -15688,10 +15688,10 @@
         if (maxBones < bones.length) {
           console.warn(
             'THREE.WebGLRenderer: Skeleton has ' +
-              bones.length +
-              ' bones. This GPU supports ' +
-              maxBones +
-              '.',
+            bones.length +
+            ' bones. This GPU supports ' +
+            maxBones +
+            '.',
           );
           return 0;
         }
@@ -17794,15 +17794,15 @@
       material.blending === NormalBlending && material.transparent === false
         ? setBlending(NoBlending)
         : setBlending(
-            material.blending,
-            material.blendEquation,
-            material.blendSrc,
-            material.blendDst,
-            material.blendEquationAlpha,
-            material.blendSrcAlpha,
-            material.blendDstAlpha,
-            material.premultipliedAlpha,
-          );
+          material.blending,
+          material.blendEquation,
+          material.blendSrc,
+          material.blendDst,
+          material.blendEquationAlpha,
+          material.blendSrcAlpha,
+          material.blendDstAlpha,
+          material.premultipliedAlpha,
+        );
 
       depthBuffer.setFunc(material.depthFunc);
       depthBuffer.setTest(material.depthTest);
@@ -18111,14 +18111,14 @@
 
           console.warn(
             'THREE.WebGLRenderer: Texture has been resized from (' +
-              image.width +
-              'x' +
-              image.height +
-              ') to (' +
-              width +
-              'x' +
-              height +
-              ').',
+            image.width +
+            'x' +
+            image.height +
+            ') to (' +
+            width +
+            'x' +
+            height +
+            ').',
           );
 
           return canvas;
@@ -18126,10 +18126,10 @@
           if ('data' in image) {
             console.warn(
               'THREE.WebGLRenderer: Image in DataTexture is too big (' +
-                image.width +
-                'x' +
-                image.height +
-                ').',
+              image.width +
+              'x' +
+              image.height +
+              ').',
             );
           }
 
@@ -18180,8 +18180,8 @@
 
         console.warn(
           "THREE.WebGLRenderer: Attempt to use non-existing WebGL internal format '" +
-            internalFormatName +
-            "'",
+          internalFormatName +
+          "'",
         );
       }
 
@@ -18319,9 +18319,9 @@
       if (textureUnit >= maxTextures) {
         console.warn(
           'THREE.WebGLTextures: Trying to use ' +
-            textureUnit +
-            ' texture units while this GPU supports only ' +
-            maxTextures,
+          textureUnit +
+          ' texture units while this GPU supports only ' +
+          maxTextures,
         );
       }
 
@@ -24248,10 +24248,10 @@
           normal === undefined
             ? []
             : [
-                new Vector3().fromBufferAttribute(normal, a),
-                new Vector3().fromBufferAttribute(normal, b),
-                new Vector3().fromBufferAttribute(normal, c),
-              ];
+              new Vector3().fromBufferAttribute(normal, a),
+              new Vector3().fromBufferAttribute(normal, b),
+              new Vector3().fromBufferAttribute(normal, c),
+            ];
 
         const face = new Face3(a, b, c, vertexNormals, vertexColors, materialIndex);
 
@@ -24968,28 +24968,28 @@
 
     clone: function () {
       /*
-			 // Handle primitives
+       // Handle primitives
 
-			 const parameters = this.parameters;
+       const parameters = this.parameters;
 
-			 if ( parameters !== undefined ) {
+       if ( parameters !== undefined ) {
 
-			 const values = [];
+       const values = [];
 
-			 for ( const key in parameters ) {
+       for ( const key in parameters ) {
 
-			 values.push( parameters[ key ] );
+       values.push( parameters[ key ] );
 
-			 }
+       }
 
-			 const geometry = Object.create( this.constructor.prototype );
-			 this.constructor.apply( geometry, values );
-			 return geometry;
+       const geometry = Object.create( this.constructor.prototype );
+       this.constructor.apply( geometry, values );
+       return geometry;
 
-			 }
+       }
 
-			 return new this.constructor().copy( this );
-			 */
+       return new this.constructor().copy( this );
+       */
 
       return new Geometry().copy(this);
     },
@@ -32899,14 +32899,14 @@
    */
 
   /*
-	Based on an optimized c++ solution in
-	 - http://stackoverflow.com/questions/9489736/catmull-rom-curve-with-no-cusps-and-no-self-intersections/
-	 - http://ideone.com/NoEbVM
+  Based on an optimized c++ solution in
+   - http://stackoverflow.com/questions/9489736/catmull-rom-curve-with-no-cusps-and-no-self-intersections/
+   - http://ideone.com/NoEbVM
 
-	This CubicPoly class could be used for reusing some variables and calculations,
-	but for three.js curve use, it could be possible inlined and flatten into a single function call
-	which can be placed in CurveUtils.
-	*/
+  This CubicPoly class could be used for reusing some variables and calculations,
+  but for three.js curve use, it could be possible inlined and flatten into a single function call
+  which can be placed in CurveUtils.
+  */
 
   function CubicPoly() {
     let c0 = 0,
@@ -36712,10 +36712,10 @@
     if (!glyph) {
       console.error(
         'THREE.Font: character "' +
-          char +
-          '" does not exists in font family ' +
-          data.familyName +
-          '.',
+        char +
+        '" does not exists in font family ' +
+        data.familyName +
+        '.',
       );
 
       return;
@@ -38218,8 +38218,8 @@
       if (!targetObject) {
         console.error(
           'THREE.PropertyBinding: Trying to update node for track: ' +
-            this.path +
-            " but it wasn't found.",
+          this.path +
+          " but it wasn't found.",
         );
         return;
       }
@@ -38308,10 +38308,10 @@
 
         console.error(
           'THREE.PropertyBinding: Trying to update property for track: ' +
-            nodeName +
-            '.' +
-            propertyName +
-            " but it wasn't found.",
+          nodeName +
+          '.' +
+          propertyName +
+          " but it wasn't found.",
           targetObject,
         );
         return;
@@ -38547,7 +38547,7 @@
         } else if (objects[index] !== knownObject) {
           console.error(
             'THREE.AnimationObjectGroup: Different objects with the same UUID ' +
-              'detected. Clean the caches or recreate your infrastructure when reloading scenes.',
+            'detected. Clean the caches or recreate your infrastructure when reloading scenes.',
           );
         } // else the object is already where we want it to be
       } // for arguments
@@ -40662,27 +40662,27 @@
       this.update();
 
       /*
-		// TODO: delete this comment?
-		const distanceGeometry = new THREE.IcosahedronBufferGeometry( 1, 2 );
-		const distanceMaterial = new THREE.MeshBasicMaterial( { color: hexColor, fog: false, wireframe: true, opacity: 0.1, transparent: true } );
+    // TODO: delete this comment?
+    const distanceGeometry = new THREE.IcosahedronBufferGeometry( 1, 2 );
+    const distanceMaterial = new THREE.MeshBasicMaterial( { color: hexColor, fog: false, wireframe: true, opacity: 0.1, transparent: true } );
 
-		this.lightSphere = new THREE.Mesh( bulbGeometry, bulbMaterial );
-		this.lightDistance = new THREE.Mesh( distanceGeometry, distanceMaterial );
+    this.lightSphere = new THREE.Mesh( bulbGeometry, bulbMaterial );
+    this.lightDistance = new THREE.Mesh( distanceGeometry, distanceMaterial );
 
-		const d = light.distance;
+    const d = light.distance;
 
-		if ( d === 0.0 ) {
+    if ( d === 0.0 ) {
 
-			this.lightDistance.visible = false;
+      this.lightDistance.visible = false;
 
-		} else {
+    } else {
 
-			this.lightDistance.scale.set( d, d, d );
+      this.lightDistance.scale.set( d, d, d );
 
-		}
+    }
 
-		this.add( this.lightDistance );
-		*/
+    this.add( this.lightDistance );
+    */
     }
 
     dispose() {
@@ -40698,19 +40698,19 @@
       }
 
       /*
-			const d = this.light.distance;
+      const d = this.light.distance;
 
-			if ( d === 0.0 ) {
+      if ( d === 0.0 ) {
 
-				this.lightDistance.visible = false;
+        this.lightDistance.visible = false;
 
-			} else {
+      } else {
 
-				this.lightDistance.visible = true;
-				this.lightDistance.scale.set( d, d, d );
+        this.lightDistance.visible = true;
+        this.lightDistance.scale.set( d, d, d );
 
-			}
-			*/
+      }
+      */
     }
   }
 
@@ -41173,20 +41173,20 @@
       const max = _box$3.max;
 
       /*
-				5____4
-			1/___0/|
-			| 6__|_7
-			2/___3/
+        5____4
+      1/___0/|
+      | 6__|_7
+      2/___3/
 
-			0: max.x, max.y, max.z
-			1: min.x, max.y, max.z
-			2: min.x, min.y, max.z
-			3: max.x, min.y, max.z
-			4: max.x, max.y, min.z
-			5: min.x, max.y, min.z
-			6: min.x, min.y, min.z
-			7: max.x, min.y, min.z
-			*/
+      0: max.x, max.y, max.z
+      1: min.x, max.y, max.z
+      2: min.x, min.y, max.z
+      3: max.x, min.y, max.z
+      4: max.x, max.y, min.z
+      5: min.x, max.y, min.z
+      6: min.x, min.y, min.z
+      7: max.x, min.y, min.z
+      */
 
       const position = this.geometry.attributes.position;
       const array = position.array;
@@ -43148,7 +43148,7 @@
   PerspectiveCamera.prototype.setLens = function (focalLength, filmGauge) {
     console.warn(
       'THREE.PerspectiveCamera.setLens is deprecated. ' +
-        'Use .setFocalLength and .filmGauge for a photographic setup.',
+      'Use .setFocalLength and .filmGauge for a photographic setup.',
     );
 
     if (filmGauge !== undefined) this.filmGauge = filmGauge;
@@ -43486,15 +43486,15 @@
       get: function () {
         console.error(
           'THREE.' +
-            this.type +
-            ': .shading has been removed. Use the boolean .flatShading instead.',
+          this.type +
+          ': .shading has been removed. Use the boolean .flatShading instead.',
         );
       },
       set: function (value) {
         console.warn(
           'THREE.' +
-            this.type +
-            ': .shading has been removed. Use the boolean .flatShading instead.',
+          this.type +
+          ': .shading has been removed. Use the boolean .flatShading instead.',
         );
         this.flatShading = value === FlatShading;
       },
@@ -64830,16 +64830,16 @@ void main() {
   class DXFProfileExporter {
     static toXYZ(points, flatten = false) {
       /*
-			points: {
-				...
-				data: {
-					mileage: [0, 1, 2...], -> one per point
-					position: [0, 0, 0, 1, 1, 1, 2, 2, 2...], -> X, Y, Z
-					rgba: [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2...] -> R, G, B, A
-				},
-				numPoints: Int
-			}
-			*/
+      points: {
+        ...
+        data: {
+          mileage: [0, 1, 2...], -> one per point
+          position: [0, 0, 0, 1, 1, 1, 2, 2, 2...], -> X, Y, Z
+          rgba: [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2...] -> R, G, B, A
+        },
+        numPoints: Int
+      }
+      */
 
       const pointsXYZ = {
         x: [],
@@ -68439,15 +68439,15 @@ ENDSEC
           blockBackface.css('display', 'block');
         }
         /*
-				opt.checkboxradio({
-					clicked: (event, ui) => {
-						// let value = ui.item.value;
-						let value = ui.item.checked;
-						console.log(value);
-						material.backfaceCulling = value; // $('#set_freeze').prop("checked");
-					}
-				});
-				*/
+        opt.checkboxradio({
+          clicked: (event, ui) => {
+            // let value = ui.item.value;
+            let value = ui.item.checked;
+            console.log(value);
+            material.backfaceCulling = value; // $('#set_freeze').prop("checked");
+          }
+        });
+        */
       }
 
       {
@@ -77443,10 +77443,10 @@ ENDSEC
         ) {
           console.warn(
             'THREE.GLTFLoader: Custom UV set ' +
-              mapDef.texCoord +
-              ' for texture ' +
-              mapName +
-              ' not yet supported.',
+            mapDef.texCoord +
+            ' for texture ' +
+            mapName +
+            ' not yet supported.',
           );
         }
 
@@ -82331,14 +82331,14 @@ ENDSEC
         typeof document === 'undefined'
           ? new (require('u' + 'rl').URL)('file:' + __filename).href
           : (document.currentScript && document.currentScript.src) ||
-            new URL('potree.js', document.baseURI).href,
+          new URL('potree.js', document.baseURI).href,
     }
   ) {
     exports.scriptPath = new URL(
       (typeof document === 'undefined'
         ? new (require('u' + 'rl').URL)('file:' + __filename).href
         : (document.currentScript && document.currentScript.src) ||
-          new URL('potree.js', document.baseURI).href) + '/..',
+        new URL('potree.js', document.baseURI).href) + '/..',
     ).href;
     if (exports.scriptPath.slice(-1) === '/') {
       exports.scriptPath = exports.scriptPath.slice(0, -1);
