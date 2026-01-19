@@ -27,7 +27,7 @@ npm install
 
 Use the `npm run build; npm start` command to 
 
-* create ./build/potree 
+* create ./build/potree and sync with Point-Cloud-Annotator-UI/public/potree
 * watch for changes to the source code and automatically create a new build on change
 * start a web server at localhost:1234. 
 
