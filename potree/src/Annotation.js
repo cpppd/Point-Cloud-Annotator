@@ -88,7 +88,7 @@ export class Annotation extends EventDispatcher {
 		this.elTitlebar.on('click', (e) => {
 			// Don't trigger if clicking on input, OK button, or delete button
 			if ($(e.target).hasClass('annotation-label-input') ||
-				$(e.target).hasClass('annotation-label-ok') ||
+				$(e.target).hasClass('annotation-label-save') ||
 				$(e.target).hasClass('annotation-delete')) {
 				return;
 			}
