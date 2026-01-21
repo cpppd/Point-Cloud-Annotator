@@ -1,0 +1,105 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "Point-Cloud-Annotator-UI": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.css",
+              "public/libs/jquery-ui/jquery-ui.min.css",
+              "public/libs/openlayers3/ol.css",
+              "public/libs/spectrum/spectrum.css",
+              "public/libs/jstree/themes/mixed/style.css",
+              "public/potree/potree.css"
+            ],
+            "scripts": [
+              "public/libs/jquery/jquery-3.1.1.min.js",
+              "public/libs/spectrum/spectrum.js",
+              "public/libs/jquery-ui/jquery-ui.min.js",
+              "public/libs/three.js/build/three.min.js",
+              "public/libs/three.js/extra/lines.js",
+              "public/libs/other/BinaryHeap.js",
+              "public/libs/tween/tween.min.js",
+              "public/libs/d3/d3.min.js",
+              "public/libs/proj4/proj4.js",
+              "public/libs/openlayers3/ol.js",
+              "public/libs/i18next/i18next.js",
+              "public/libs/jstree/jstree.js",
+              "public/potree/potree.js",
+              "public/libs/plasio/js/laslaz.js"
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "4MB",
+                  "maximumError": "5MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "Point-Cloud-Annotator-UI:build:production"
+            },
+            "development": {
+              "buildTarget": "Point-Cloud-Annotator-UI:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
+  }
+}
