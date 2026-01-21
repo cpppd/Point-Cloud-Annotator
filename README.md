@@ -186,9 +186,3 @@ URL=$(cd cloud-services && terraform output -raw cloudfront_distribution_url)
 echo "Application URL: $URL"
 open $URL # or xdg-open $URL
 ```
-```
-
-## Architecture
-- **Frontend**: API calls to API Gateway.
-- **Backend**: API Gateway proxies requests to Lambda functions.
-- **Database**: Lambda reads/writes to DynamoDB.
