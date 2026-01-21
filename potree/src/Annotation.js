@@ -2,6 +2,7 @@ import * as THREE from "../libs/three.js/build/three.module.js";
 import { Action } from "./Actions.js";
 import { Utils } from "./utils.js";
 import { EventDispatcher } from "./EventDispatcher.js";
+import { AnnotationAPI } from "./annotation-api.js";
 
 export class Annotation extends EventDispatcher {
 	constructor(args = {}) {
@@ -110,11 +111,15 @@ export class Annotation extends EventDispatcher {
 			this.elTitleSave.hide();
 			this.elTitle.show();
 			this.isTitleEditing = false;
+			// Save to backend API
+			AnnotationAPI.saveAnnotation(this);
 		});
 
 		// Delete button handler
 		this.elDelete.on('click', (e) => {
 			e.stopPropagation();
+			// Delete from backend API
+			AnnotationAPI.deleteAnnotation(this.uuid);
 			// Remove from parent if exists
 			if (this.parent) {
 				this.parent.remove(this);
@@ -155,6 +160,8 @@ export class Annotation extends EventDispatcher {
 			this.elDescriptionActions.hide();
 			this.elDescriptionContent.show();
 			this.isDescriptionEditing = false;
+			// Save to backend API
+			AnnotationAPI.saveAnnotation(this);
 		});
 
 		this.clickTitle = () => {
@@ -597,7 +604,6 @@ export class Annotation extends EventDispatcher {
 	}
 
 	hasView() {
-		console.log(this.cameraTarget)
 		let hasPosTargetView = this.cameraTarget.x != null;
 		hasPosTargetView = hasPosTargetView && this.cameraPosition.x != null;
 
