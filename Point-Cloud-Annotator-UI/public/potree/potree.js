@@ -55821,13 +55821,29 @@
 	  }
 	};
 
+	const sanitize = (str) => {
+		if (typeof str !== 'string') return str;
+		return str.replace(/[&<>"'/]/g, s => ({
+			'&': '&amp;', '<': '&lt;', '>': '&gt;',
+			'"': '&quot;', "'": '&#39;', '/': '&#x2F;'
+		})[s]);
+	};
+
+	const unsanitize = (str) => {
+		if (typeof str !== 'string') return str;
+		if (typeof document === 'undefined') return str;
+		const div = document.createElement('div');
+		div.innerHTML = str;
+		return div.textContent;
+	};
+
 	class Annotation extends EventDispatcher {
 		constructor(args = {}) {
 			super();
 
 			this.scene = null;
-			this._title = args.title || 'No Title';
-			this._description = args.description || '';
+			this._title = sanitize(args.title || 'No Title');
+			this._description = sanitize(args.description || '');
 			this.offset = new Vector3();
 			this.uuid = MathUtils.generateUUID();
 
@@ -55874,7 +55890,7 @@
 					<span class="annotation-description-close">
 						<img src="${iconClose}" width="16px">
 					</span>
-					<span class="annotation-description-content">${this._description}</span>
+					<span class="annotation-description-content"></span>
 					<textarea class="annotation-description-input" maxlength="256" style="display: none;"></textarea>
 					<div class="annotation-description-actions" style="display: none;">
 						<button class="annotation-description-save">Save</button>
@@ -55886,13 +55902,14 @@
 
 			this.elTitlebar = this.domElement.find('.annotation-titlebar');
 			this.elTitle = this.elTitlebar.find('.annotation-label');
-			this.elTitle.append(this._title);
+			this.elTitle.html(this._title);
 			this.elTitleInput = this.elTitlebar.find('.annotation-label-input');
 			this.elTitleSave = this.elTitlebar.find('.annotation-label-save');
 			this.elDelete = this.elTitlebar.find('.annotation-delete');
 			this.elDescription = this.domElement.find('.annotation-description');
 			this.elDescriptionClose = this.elDescription.find('.annotation-description-close');
 			this.elDescriptionContent = this.elDescription.find('.annotation-description-content');
+			this.elDescriptionContent.html(this._description);
 			this.elDescriptionInput = this.elDescription.find('.annotation-description-input');
 			this.elDescriptionActions = this.elDescription.find('.annotation-description-actions');
 			this.elDescriptionSave = this.elDescription.find('.annotation-description-save');
@@ -55914,7 +55931,7 @@
 				if (!this.isTitleEditing) {
 					this.isTitleEditing = true;
 					this.elTitle.hide();
-					this.elTitleInput.val(this._title).show().focus();
+					this.elTitleInput.val(unsanitize(this._title)).show().focus();
 					this.elTitleSave.show();
 					e.stopPropagation();
 				}
@@ -55955,7 +55972,7 @@
 				if (!this.isDescriptionEditing) {
 					this.isDescriptionEditing = true;
 					this.elDescriptionContent.hide();
-					this.elDescriptionInput.val(this._description).show().focus();
+					this.elDescriptionInput.val(unsanitize(this._description)).show().focus();
 					this.elDescriptionActions.show();
 					// Update counter with current length
 					this.elDescriptionCounter.text(`${this._description.length}/256`);
@@ -56261,9 +56278,9 @@
 				return;
 			}
 
-			this._title = title;
+			this._title = sanitize(title);
 			this.elTitle.empty();
-			this.elTitle.append(this._title);
+			this.elTitle.html(this._title);
 
 			this.dispatchEvent({
 				type: "annotation_changed",
@@ -56280,11 +56297,10 @@
 				return;
 			}
 
-			this._description = description;
+			this._description = sanitize(description);
 
 			const elDescriptionContent = this.elDescription.find(".annotation-description-content");
-			elDescriptionContent.empty();
-			elDescriptionContent.append(this._description);
+			elDescriptionContent.html(this._description);
 
 			this.dispatchEvent({
 				type: "annotation_changed",
